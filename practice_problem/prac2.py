@@ -3,57 +3,123 @@ def palindrom_num(num):
     number = num
     while num > 0:
         temp = num % 10
-        result = (result*10) + temp
+        result = (result * 10) + temp
         num //= 10
     if result == number:
         return True
     return False
 
 
-# Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
-#
-# Symbol       Value
-# I             1
-# V             5
-# X             10
-# L             50
-# C             100
-# D             500
-# M             1000
-# For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply
-# X + II. The number 27 is written as XXVII, which is XX + V + II.
-#
-# Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII.
-# Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same
-# principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
-#
-# I can be placed before V (5) and X (10) to make 4 and 9.
-# X can be placed before L (50) and C (100) to make 40 and 90.
-# C can be placed before D (500) and M (1000) to make 400 and 900.
-# Given a roman numeral, convert it to an integer.
-# Example 1:
-#
-# Input: s = "III"
-# Output: 3
-# Explanation: III = 3.
-# Example 2:
-#
-# Input: s = "LVIII"
-# Output: 58
-# Explanation: L = 50, V= 5, III = 3.
-# Example 3:
-#
-# Input: s = "MCMXCIV"
-# Output: 1994
-# Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
-#
-#
-#
-#
-#
+def roman_to_int(r_str):  # LVIII
+    r_dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    res = 0
+    for i in range(len(r_str) - 1):
+        if r_dict[r_str[i]] < r_dict[r_str[i + 1]]:
+            res = res - r_dict[r_str[i]]
+        else:
+            res = res + r_dict[r_str[i]]
+    return res + r_dict[r_str[-1]]
+
+
+def move_zero(nums):
+    for i in nums:
+        if i == 0:
+            nums.remove(0)
+            nums.append(0)
+    return nums
+
+
+def fill_none(a_list):  # [1, None, 2, 3, None, None, 5, None]
+    val = 0
+    res = []
+    for i in a_list:
+        if i is not None:
+            res.append(i)
+            val = i
+        else:
+            res.append(val)
+    return res
+
+
+def max_min(data):
+    a = data[0]
+    b = data[0]
+    for i in data:
+        if i > a:
+            a = i
+        elif i < b:
+            b = i
+    print("maximum number is", a, "minimum number is", b)
+
+
+def reverse_string(text):
+    index = -1
+    for i in range(len(text) - 1, len(text)//2, -1):  # len(text) = 17
+        if text[i].isalpha():
+            temp = text[i]
+            while True:
+                index += 1
+                if text[index].isalpha():
+                    text[i] = text[index]
+                    text[index] = temp
+                    break
+    return text
+
+
+def str_to_dic(a_string):
+    a_dict = {}
+    for i in a_string:
+        a_dict.update({i: a_string.count(i)})
+    print(a_dict)
+
+
+def remove_duplicate_value(my_list):
+    dup = []
+    for i in my_list:
+        if i not in dup:
+            dup.append(my_list[i])
+    return dup
+
+
+def remove_duplicates(nums):
+    count = 1
+    for i in range(1, len(nums)):
+        for j in range(i-1, i):
+            if nums[i] == nums[j]:
+                continue
+            else:
+                nums[count] = nums[i]
+                count += 1
+    return count
 
 
 if __name__ == '__main__':
+    # obj = palindrom_num(121)
+    # print(obj)
 
-    obj = palindrom_num(121)
-    print(obj)
+    print(roman_to_int('LVIII'))
+
+    # a_list1 = [0, 1, 0, 3, 12]
+    # a_list2 = [1, 7, 0, 0, 8, 0, 10, 12, 0, 4]
+    # print(move_zero(a_list1))
+    # print(move_zero(a_list2))
+
+    a_list1 = [1, None, 2, 3, None, None, 5, None]
+    print(fill_none(a_list1))
+
+    # data = [0, 10, 15, 40, -5, 42, 17, 28, 75]
+    # max_min(data)
+
+    # a_string = 'python practice'
+    # str_to_dic(a_string)
+
+    # string = "a!!!b.c.d,e'f,ghi"
+    # print("Input string: ", string)
+    # string = reverse_string(list(string))
+    # print("Output string: ", "".join(string))
+
+    # my_list = [1, 2, 2, 3, 4, 4, 5, 5]
+    # obj = remove_duplicate_value(my_list)
+    # print(obj)
+
+

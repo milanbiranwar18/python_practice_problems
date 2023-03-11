@@ -123,7 +123,7 @@ def num_fri_in_year(year):
     count = 0
     for month in range(1, 13):
         obj = datetime.date(year, month, 13)
-        if (obj.weekday == 4) == True:
+        if obj.weekday == 4:
             count += 1
 
     return count
@@ -143,13 +143,16 @@ def two_product(a_list):
 
     b_list = []
     for i in a_list:
-        for j in a_list[1:]:
+        for j in a_list:
+            if a_list.index(i) == a_list.index(j):
+                continue
             obj = i * j
             if obj == 55:
                 b_list.append(i)
                 b_list.append(j)
-
-    return b_list[::-1]
+    res = set(b_list)
+    c_list = list(res)
+    return c_list[::-1]
 
 
 # "In the class Employee, implement the instance attributes as firstname, lastname and salary.
@@ -171,13 +174,21 @@ def two_product(a_list):
 class Employee():
     def __init__(self, firstname, lastname, salary):
         self.firstname = firstname
-        self.lastname  = lastname
+        self.lastname = lastname
         self.salary = salary
 
     @staticmethod
     def from_string(a_sting):
-        a_list = a_sting.split()
-        # a_list
+        a_list = a_sting.split("-")
+        obj = Employee(*a_list)
+        return obj
+
+    @classmethod
+    def from_string1(cls, emp_str):
+        firstname, lastname, salary = emp_str.split('-')
+        return cls(firstname, lastname, int(salary))
+
+
 
 
 # "Your task is to create a class to handle paginated content in a website. A pagination is used to divide long lists
@@ -256,11 +267,15 @@ if __name__ == '__main__':
     # obj = num_fri_in_year(2020)
     # print(obj)
 
-    # b = [11, 2, 7, 3, 5, 0]
-    # print(two_product(b))
+    b = [11, 2, 7, 3, 5, 0]
+    print(two_product(b))
 
-    emp1 = Employee("Mary", "Sue", 60000)
-    emp2 = Employee.from_string("John-Smith-55000")
-    print(emp1.firstname)
-    print(emp1.salary)
-    print(emp2)
+    # emp1 = Employee("Mary", "Sue", 60000)
+    # print(emp1.firstname)
+    # print(emp1.salary)
+    # emp2 = Employee.from_string("John-Smith-55000")
+    # print(emp2.firstname)
+    # print(emp2.salary)
+    # emp3 = Employee.from_string1("John-Smith-55000")
+    # print(emp3.firstname)
+    # print(emp3.salary)
