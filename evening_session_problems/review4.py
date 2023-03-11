@@ -1,16 +1,3 @@
-import datetime
-
-
-def num_fri_in_year(year):
-    count = 0
-    for month in range(1, 13):
-        obj = datetime.date(year, month, 13)
-        if obj.weekday == 4:
-            count += 1
-
-    return count
-
-#
 # Your task is to create a class to handle paginated content in a website. A pagination is used to divide long lists of content in a series of pages.
 #
 # Example
