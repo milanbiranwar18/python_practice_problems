@@ -1,41 +1,4 @@
-# Your task is to create a class to handle paginated content in a website. A pagination is used to divide long lists of content in a series of pages.
-#
-# Example
-#
-# The pagination class will accept 2 parameters:
-#
-# items (default: []): A list of contents to paginate.
-#
-# pageSize (default: 10): The amount of items to show in each page.
-#
-# So for example we could initialize our pagination like this:
-#
-# alphabetList = ""abcdefghijklmnopqrstuvwxyz"".split('')
-#
-# p = Pagination(alphabetList, 4)
-# And then use the method getVisibleItems to show the contents of the paginated list.
-#
-# p.getVisibleItems() # ["a", "b", "c", "d"]
-# You will have to implement various methods to go through the pages such as:
-#
-# prevPage
-# nextPage
-# firstPage
-# lastPage
-# goToPage
-# Here's a continuation of the example above using nextPage and lastPage:
-#
-# p.nextPage()
-#
-# p.getVisibleItems()
-# # ["e", "f", "g", "h"]
-#
-# p.lastPage()
-#
-# p.getVisibleItems()
-# # ["y", "z"]
-
-
+# TODO Que = 1
 class Pagination():
     def __init__(self, items, page_size):
         self.items = items
@@ -46,7 +9,6 @@ class Pagination():
         for i in range(len(self.items)):
             if i < 4:
                 a_list.append(self.items[i])
-        print(a_list)
 
     def second_page(self):
         a_list = []
@@ -54,15 +16,11 @@ class Pagination():
             if i==4 or i>4 and i < 8:
                 a_list.append(self.items[i])
 
-        print(a_list)
-
     def third_page(self):
         a_list = []
         for i in range(len(self.items)):
             if i == 8 or i > 8 and i < 12:
                 a_list.append(self.items[i])
-
-        print(a_list)
 
     def fourth_page(self):
         a_list = []
@@ -70,15 +28,11 @@ class Pagination():
             if i == 12 or i > 12 and i < 16:
                 a_list.append(self.items[i])
 
-        print(a_list)
-
     def fifth_page(self):
         a_list = []
         for i in range(len(self.items)):
             if i == 16 or i > 16 and i < 20:
                 a_list.append(self.items[i])
-
-        print(a_list)
 
     def six_page(self):
         a_list = []
@@ -86,17 +40,11 @@ class Pagination():
             if i == 20 or i > 20 and i < 24:
                 a_list.append(self.items[i])
 
-        print(a_list)
-
     def last_page(self):
         a_list = []
         for i in range(len(self.items)):
             if i == 24 or i > 24 and i <= 26:
                 a_list.append(self.items[i])
-
-        print(a_list)
-
-
 
     def prev_page(self):
         pass
@@ -116,25 +64,7 @@ class Pagination():
             pass
 
 
-# "Given a list of people objects, create a function that sorts the list by an attribute name. The attribute to sort by will be given as a string.
-#
-# The Person class will only include these attributes in the following order:
-#
-# firstname
-# lastname
-# age
-# Examples
-# p1 = Person(""Michael"", ""Smith"", 40)
-# p2 = Person(""Alice"", ""Waters"", 21)
-# p3 = Person(""Zoey"", ""Jones"", 29)
-# people_sort([p1, p2, p3], ""firstname"") ➞ [p2, p1, p3]
-# # Alice, Michael, Zoey
-# people_sort([p1, p2, p3], "lastname") ➞ [p3, p1, p2]
-# # Jones, Smith, Waters
-#
-# people_sort([p1, p2, p3], "age") ➞ [p2, p3, p1]
-# # 21, 29, 40
-
+# TODO Que= 2
 
 class Person():
     def __init__(self, firstname, lastname, age):
@@ -177,23 +107,7 @@ class Person():
 
 
 
-
-# "Create a class that imitates a select screen. For simplicity, the cursor can only move right!
-#
-# In the display method, return a string representation of the list, but with square brackets around the currently
-# selected element. Also, create the method to_the_right, which moves the cursor one element to the right.
-# The cursor should start at index 0.
-# Examples
-# menu = Menu([1, 2, 3])
-# menu.display() ➞ "[[1], 2, 3]"
-# menu.to_the_right()
-# menu.display() ➞ "[1, [2], 3]"
-#
-# menu.to_the_right()
-# menu.display() ➞ "[1, 2, [3]]"
-#
-# menu.to_the_right()
-# menu.display() ➞ "[[1], 2, 3]"
+# TODO Que = 3
 
 class Menu():
     def __init__(self, a_list):
@@ -219,21 +133,21 @@ class Menu():
 
 
 if __name__ == '__main__':
-    alphabet_list = "abcdefghijklmnopqrstuvwxyz"
-    n = 4
-    p = Pagination(alphabet_list, n)
-    p.first_page()
-    p.second_page()
-    p.third_page()
-    p.fourth_page()
-    p.fifth_page()
-    p.six_page()
-    p.last_page()
+    # alphabet_list = "abcdefghijklmnopqrstuvwxyz"
+    # n = 4
+    # p = Pagination(alphabet_list, n)
+    # p.first_page()
+    # p.second_page()
+    # p.third_page()
+    # p.fourth_page()
+    # p.fifth_page()
+    # p.six_page()
+    # p.last_page()
 
 
     # Person.sort_attributes()
 
-    # menu = Menu([1, 2, 3])
-    # menu.display()
-    # menu.to_the_right()
+    menu = Menu([1, 2, 3])
+    menu.display()
+    menu.to_the_right()
 
