@@ -121,3 +121,20 @@
 #
 # menu.to_the_right()
 # menu.display() ➞ "[[1], 2, 3]"
+
+
+
+
+# Given an integer array, in-place rearrange it such that it contains positive and negative numbers at alternate positions. Assume that all values in the array are non-zero.
+#
+# • In case the multiple rearrangement exists, the solution can return any one of them.
+#
+# Input : [9, -3, 5, -2, -8, -6, 1, 3]
+# Output: [9, -3, 5, -2, 1, -8, 3, -6] or [5, -2, 9, -6, 1, -8, 3, -3] or any other valid combination..
+#
+# • If the array contains more positive or negative elements, the solution should move them to the end
+# Input : [9, -3, 5, -2, -8, -6]
+# Output: [5, -2, 9, -6, -3, -8] or [-2, 5, -6, 9, -3, -8] or any other valid combination..
+#
+# Input : [5, 4, 6, -1, 3]
+# Output: [5, -1, 4, 6, 3] or [-1, 5, 4, 6, 3] or any other valid combination..
