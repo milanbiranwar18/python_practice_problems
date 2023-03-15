@@ -10,20 +10,20 @@
 def num_alf(a_str):
     a_dict = {'1':"One", '2':"Two", '3':"Three", '4':"Four", '5':"Five", '6':"Six", '7':"Seven", '8':"Eight", '9':"Nine", '0':"Zero"}
     b_dict = {2:"Double", 3:"Triple", 4:"FourTimes", 5:"FiveTimes"}
-    b_str = " "
-    a = 1
+    b_str = ""
+    key = 1
     i = 0
     # for i in range(len(a_str)-1):
     while i < len(a_str)-1:
         if a_str[i] != a_str[i+1]:
             b_str = b_str + " " + a_dict[a_str[i]]
         elif a_str[i] == a_str[i + 1]:
-            a += 1
+            key += 1
 
-            # if(a_str[i] != a_str[i + 1]) and (a in b_dict.keys()):
-            if a in b_dict.keys():
-                b_str = b_str + " " + b_dict[a] + a_dict[a_str[i]]
-            # i += 1
+            if(a_str[i] != a_str[i + 1]) and (key in b_dict.keys()):
+            # if a in b_dict.keys():
+                b_str = b_str + " " + b_dict[key] + a_dict[a_str[i]]
+                # i += 1
         i += 1
     if a_str[-1] == a_str[-2]:
         return b_str

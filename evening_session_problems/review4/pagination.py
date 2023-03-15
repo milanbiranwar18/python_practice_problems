@@ -1,6 +1,41 @@
-# TODO Que = 1
 import math
 
+"""
+
+# Your task is to create a class to handle paginated content in a website. A pagination is used to divide long lists of content in a series of pages.
+# Example
+# The pagination class will accept 2 parameters:
+# items (default: []): A list of contents to paginate.
+# pageSize (default: 10): The amount of items to show in each page.
+#
+# So for example we could initialize our pagination like this:
+#
+# alphabetList = ""abcdefghijklmnopqrstuvwxyz"".split('')
+#
+# p = Pagination(alphabetList, 4)
+# And then use the method getVisibleItems to show the contents of the paginated list.
+#
+# p.getVisibleItems() # ["a", "b", "c", "d"]
+# You will have to implement various methods to go through the pages such as:
+#
+# prevPage
+# nextPage
+# firstPage
+# lastPage
+# goToPage
+# Here's a continuation of the example above using nextPage and lastPage:
+#
+# p.nextPage()
+#
+# p.getVisibleItems()
+# # ["e", "f", "g", "h"]
+#
+# p.lastPage()
+#
+# p.getVisibleItems()
+# # ["y", "z"]
+
+"""
 
 class Pagination():
     def __init__(self, items, page_size):
@@ -98,69 +133,6 @@ class Paginator:
         else:
             return None
 
-##############################################################
-
-# TODO Que= 2
-
-class Person():
-    def __init__(self, firstname, lastname, age):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.age = age
-
-    @staticmethod
-    def sort_attributes():
-        p1 = Person("Michael", "Smith", 40)
-        p2 = Person("Alice", "Waters", 21)
-        p3 = Person('Zoey', 'Jones', 29)
-
-        f_name = [p1.firstname, p2.firstname, p3.firstname]
-        sort_f_name = sorted(f_name)
-        print(sort_f_name)
-
-        l_name = []
-
-        sort_l_name = sorted(l_name)
-        print(sort_l_name)
-
-        age_list = []
-        age_list.append(p1.age)
-        age_list.append(p2.age)
-        age_list.append(p3.age)
-        for i in range(len(age_list)-1, 0, -1):
-            for i in range(i):
-                if age_list[i] > age_list[i+1]:
-                    temp = age_list[i]
-                    age_list[i] = age_list[i+1]
-                    age_list[i + 1] = temp
-
-        print(age_list)
-
-
-# TODO Que = 3
-
-class Menu():
-    def __init__(self, a_list):
-        self.a_list = a_list
-
-    def display(self):
-        pass
-
-    def to_the_right(self):
-        a = '['
-        b = ']'
-        c = []
-
-        for i in range(len(self.a_list)):
-            a_str = str(i)
-            c.append(a)
-            c.append(a_str)
-            c.append(b)
-
-
-
-
-
 
 if __name__ == '__main__':
     # alphabet_list = "abcdefghijklmnopqrstuvwxyz"
@@ -173,13 +145,6 @@ if __name__ == '__main__':
     # p.fifth_page()
     # p.six_page()
     # p.last_page()
-
-
-    # Person.sort_attributes()
-
-    # menu = Menu([1, 2, 3])
-    # menu.display()
-    # menu.to_the_right()
 
     items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     paginator = Paginator(items, 3)
@@ -218,6 +183,4 @@ if __name__ == '__main__':
     # Get the total number of pages
     num_pages = paginator.num_pages()
     print(num_pages)  # 4
-
-
 
