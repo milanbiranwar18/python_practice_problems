@@ -42,7 +42,7 @@ class Smoothie:
         # for ingredient in self.ingredients:
         #     a_str = a_str + " " + ingredient
         #
-        a_str = " ".join(self.ingredients)
+        a_str = " ".join(sorted(self.ingredients))
 
         if len(self.ingredients) == 1:
             a_str = a_str + " " + c_str

@@ -53,3 +53,7 @@ if __name__ == '__main__':
     a_list = [-2, 0, 1, 3]
     x = -3
     print(floor_ceil(a_list, x))
+
+    a_list = [-2, 0, 1, 3]
+    x = 4
+    print(floor_ceil(a_list, x))
